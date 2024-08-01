@@ -3,8 +3,26 @@
 
 <div class="row">
     <div class="col-6">
+        <div id="campgroundCarousel" class="carousel slide">
+            <div class="carousel-inner">
+            <% campground.images.forEach((img, i) => {%>
+              <div class="carousel-item <%= i === 0 ? 'active' : '' %>">
+                <img src="<%= img.url %>" class="d-block w-100" alt="...">
+              </div>
+              <% }) %>
+            </div>
+            <% if(campground.images.length > 1) {%>
+            <button class="carousel-control-prev" type="button" data-bs-target="#campgroundCarousel" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#campgroundCarousel" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+            <% } %>
+          </div>
             <div class="card mb-3">
-            <img src="<%= campground.image %>" class="card-img-top" alt="">
             <div class="card-body">
                 <h5 class="card-title"><%= campground.title %></h5>
                 <p class="card-text"><%= campground.description %></p>
@@ -31,12 +49,10 @@
         <% if(currentUser) {%>
         <h2>Laisser un avis</h2>
         <form action="/campgrounds/<%=campground._id%>/reviews" method="POST" class="mb-3 validated-form" novalidate>
-            <!-- <div class="mb-3">
-                <label class="form-label" for="rating">Note</label>
-                <input class="form-range" type="range" min="1" max="5" name="review[rating]" id="rating"> -->
+
                 <div class="mb-3">
                 <fieldset class="starability-basic">
-                    <!-- <legend>Note sur 5:</legend> -->
+                        <legend>Noter ce camp</legend>
                     <input type="radio" id="no-rate" class="input-no-rate" name="review[rating]" value="0" checked aria-label="No rating." />
                     <input type="radio" id="first-rate1" name="review[rating]" value="1" />
                     <label for="first-rate1" title="Terrible">1 star</label>
@@ -67,7 +83,6 @@
                     <p class="starability-result" data-rating="<%= review.rating  %>">
                      Note : <%= review.rating  %>/5
                     </p>
-                <!-- <h6 class="card-subtitle mb-2 text-body-secondary">Par : <%= review.author.username %></h6> -->
                 <p class="card-text">Reviews : <%= review.body %></p>
                 <% if( currentUser && review.author.equals(currentUser._id)){%>
                 <form action="/campgrounds/<%=campground._id%>/reviews/<%=review._id%>?_method=DELETE" method="POST">
@@ -75,8 +90,7 @@
                 </form>
                 <% } %>
              </div>
-        </div>
-           
+        </div>  
         <% } %>
     </div>
 </div>

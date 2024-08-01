@@ -1,8 +1,9 @@
 <% layout('layouts/boilerplate') %>
+<link rel="stylesheet" href="/stylesheets/previewImages.css" class="rel">
 <div class="row">
     <h1 class="text-center mb-3">Ajouter un campement</h1>
     <div class="col-6 offset-3 mb-3">
-        <form action="/campgrounds" method="POST" novalidate class="validated-form">
+        <form action="/campgrounds" method="POST" novalidate class="validated-form" enctype="multipart/form-data">
             <div class="mb-3">
                 <label class="form-label" for="title">Nom du campement</label>
                 <input class="form-control" type="text" id="title" name="campground[title]" required>
@@ -16,10 +17,11 @@
                 <div class="valid-feedback">
                     Cela me semble bon !
                   </div>
-            </div>
+            </div> 
             <div class="mb-3">
-                <label class="form-label" for="image">Image Url</label>
-                <input class="form-control" type="text" id="image" name="campground[image]" required>
+                <label for="image" class="form-label">Sélectionner vos meilleures photos</label>
+                <input class="form-control" type="file" id="image" name="image" multiple multiple onchange="previewMultiple(event)">
+                <div id="formFile"></div>
                 <div class="valid-feedback">
                     Cela me semble bon !
                   </div>

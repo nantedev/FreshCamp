@@ -8,7 +8,7 @@ const {places, descriptors} = require('./seedHelpers')
 const Campground = require('../models/campground'); // attention '..' pour revenir vers le droit chemin.
 
 
-mongoose.connect('mongodb://localhost:27017/yelp-camp');
+mongoose.connect('mongodb://localhost:27017/freshcamp');
 
 const db = mongoose.connection;
 db.on("error", console.error.bind(console, "connection error:"));
@@ -24,12 +24,17 @@ const seedDB = async () => {
         const random1000 = Math.floor(Math.random() * 1000);
         const price = Math.floor(Math.random() * 20) + 10;
         const camp = new Campground({
-            author: '66a860ee0e6cbcfd86db69f9',
+            author: '66ab1ea8b97150f4415ab33d',
             location: `${cities[random1000].city}, ${cities[random1000].state}`,
             title: `${sample(descriptors)} ${sample(places)}`,
-            image: `https://picsum.photos/400?random=${Math.random()}`,
             description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc et tempor ligula. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nam ullamcorper iaculis quam ut dictum. Nam et quam leo. Suspendisse venenatis elit id feugiat tempor. Suspendisse ipsum neque, vestibulum vitae erat in, fringilla auctor elit. Nulla eget felis ipsum.',
-            price: price
+            price: price,
+            images: [
+                  {
+                    url: 'https://res.cloudinary.com/dxeknypze/image/upload/v1722484051/FreshCamp/lfqexbe0bqpfnrmmwie6.jpg',
+                    filename: 'FreshCamp/lfqexbe0bqpfnrmmwie6',
+                  }
+            ]
         })
         await camp.save();
     }
