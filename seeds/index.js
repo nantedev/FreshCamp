@@ -3,8 +3,9 @@ const app = express();
 const path = require('path');
 const mongoose = require('mongoose');
 
+
 const cities = require('./cities');
-const {places, descriptors} = require('./seedHelpers')
+const {places, descriptors, descriptions} = require('./seedHelpers');
 const Campground = require('../models/campground'); // attention '..' pour revenir vers le droit chemin.
 
 
@@ -20,15 +21,23 @@ const sample = array => array[Math.floor(Math.random() * array.length)];
 
 const seedDB = async () => {
     await Campground.deleteMany({});
-    for (let i = 0; i < 50; i++) {
+    for (let i = 0; i < 200; i++) {
         const random1000 = Math.floor(Math.random() * 1000);
         const price = Math.floor(Math.random() * 20) + 10;
         const camp = new Campground({
             author: '66ab1ea8b97150f4415ab33d',
-            location: `${cities[random1000].city}, ${cities[random1000].state}`,
+            location: `${cities[random1000].city_code}, ${cities[random1000].region_geojson_name}`,
             title: `${sample(descriptors)} ${sample(places)}`,
-            description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc et tempor ligula. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nam ullamcorper iaculis quam ut dictum. Nam et quam leo. Suspendisse venenatis elit id feugiat tempor. Suspendisse ipsum neque, vestibulum vitae erat in, fringilla auctor elit. Nulla eget felis ipsum.',
+            description: `${sample(descriptions)}`,
             price: price,
+            geometry: {
+                type: "Point",
+                coordinates: [
+                    cities[random1000].longitude,
+                    cities[random1000].latitude,
+
+                ]
+            },
             images: [
                   {
                     url: 'https://res.cloudinary.com/dxeknypze/image/upload/v1722484051/FreshCamp/lfqexbe0bqpfnrmmwie6.jpg',
@@ -36,6 +45,7 @@ const seedDB = async () => {
                   }
             ]
         })
+        console.log(camp);
         await camp.save();
     }
 }
