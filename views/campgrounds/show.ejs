@@ -46,14 +46,14 @@
             </div>
     </div>
     <div class="col-6">
-        <div id='map' style='width: 400px; height: 300px;'></div>
+        <div id='map'></div>
         <% if(currentUser) {%>
-        <h2>Laisser un avis</h2>
+        <h2 class="my-4">Laisser un avis</h2>
         <form action="/campgrounds/<%=campground._id%>/reviews" method="POST" class="mb-3 validated-form" novalidate>
 
-                <div class="mb-3">
+                <div>
+                    <h5> Noter ce camp:</h5>
                 <fieldset class="starability-basic">
-                        <legend>Noter ce camp</legend>
                     <input type="radio" id="no-rate" class="input-no-rate" name="review[rating]" value="0" checked aria-label="No rating." />
                     <input type="radio" id="first-rate1" name="review[rating]" value="1" />
                     <label for="first-rate1" title="Terrible">1 star</label>
@@ -68,7 +68,7 @@
                   </fieldset>
                 </div>
             <div class="mb-3">
-                <label class="form-label" for="body">Avis</label>
+                <h5>Donner votre avis:</h5>
                 <textarea class="form-control" name="review[body]" id="body" cols="30" rows="3" required></textarea>
                 <div class="valid-feedback">
                     Cela me semble bon !
