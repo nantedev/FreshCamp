@@ -1,7 +1,7 @@
 body {
     height: 100vh;
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    url("https://res-console.cloudinary.com/dxeknypze/media_explorer_thumbnails/302db810a53ab2f278985559f2df4718/detailed");
+    url("https://res.cloudinary.com/dxeknypze/image/upload/v1722595683/FreshCamp/eejktcaxnhedlrxdg58n.jpg");
     background-size: cover;
     background-position: center;
     text-shadow: 0 0.05rem 0.1rem rgba(0, 0, 0, 0.5);
