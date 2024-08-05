@@ -62,7 +62,6 @@ module.exports.updateCampground = async (req, res) => {
       }
      await campground.updateOne({ $pull: { images: { filename: { $in: req.body.deleteImages } } } });
     }
-    console.log(req.body);
     req.flash('success', 'Campement mis à jour!');
     res.redirect(`/campgrounds/${ campground._id }`);
 }

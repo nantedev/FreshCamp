@@ -52,7 +52,7 @@
         <form action="/campgrounds/<%=campground._id%>/reviews" method="POST" class="mb-3 validated-form" novalidate>
 
                 <div>
-                    <h5> Noter ce camp:</h5>
+                    <h6> Noter ce camp:</h6>
                 <fieldset class="starability-basic">
                     <input type="radio" id="no-rate" class="input-no-rate" name="review[rating]" value="0" checked aria-label="No rating." />
                     <input type="radio" id="first-rate1" name="review[rating]" value="1" />
@@ -68,7 +68,7 @@
                   </fieldset>
                 </div>
             <div class="mb-3">
-                <h5>Donner votre avis:</h5>
+                <h6>Donner votre avis:</h6>
                 <textarea class="form-control" name="review[body]" id="body" cols="30" rows="3" required></textarea>
                 <div class="valid-feedback">
                     Cela me semble bon !
@@ -77,7 +77,6 @@
             <button class="btn btn-success">Envoyer</button>
         </form>
         <% } %>
-        <h5 class="my-3">Vos avis :</h5>
         <% for(let review of campground.reviews) { %>
         <div class="card mb-3">
             <div class="card-body">
@@ -85,7 +84,7 @@
                     <p class="starability-result" data-rating="<%= review.rating  %>">
                      Note : <%= review.rating  %>/5
                     </p>
-                <p class="card-text">Reviews : <%= review.body %></p>
+                <p class="card-text"><%= review.body %></p>
                 <% if( currentUser && review.author.equals(currentUser._id)){%>
                 <form action="/campgrounds/<%=campground._id%>/reviews/<%=review._id%>?_method=DELETE" method="POST">
                     <button class="btn btn-sm btn-danger ">Supprimer</button>
