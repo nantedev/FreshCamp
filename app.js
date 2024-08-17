@@ -24,6 +24,7 @@ const reviewRoutes = require('./routes/reviews')
 
 const MongoStore = require('connect-mongo');
 
+//const dbUrl = 'mongodb://localhost:27017/freshcamp';
 const dbUrl = process.env.DB_URL || 'mongodb://localhost:27017/freshcamp';
 mongoose.connect(dbUrl);
 
@@ -79,7 +80,6 @@ const sessionConfig = {
 };
 
 
-
 app.use(session(sessionConfig));
 app.use(flash());
 app.use(helmet());
@@ -103,6 +103,7 @@ const connectSrcUrls = [
     "https://api.maptiler.com/",
 ];
 const fontSrcUrls = [];
+
 app.use(
     helmet.contentSecurityPolicy({
         directives: {
@@ -139,7 +140,6 @@ app.use((req, res, next) => {
     next();
 })
 
-
 app.use('/', userRoutes);
 app.use('/campgrounds', campgroundRoutes);
 app.use('/campgrounds/:id/reviews', reviewRoutes);
@@ -147,6 +147,8 @@ app.use('/campgrounds/:id/reviews', reviewRoutes);
 app.get('/', (req ,res) => {
             res.render('home')
 })
+
+
 
 app.all('*', (req, res, next) => {
     next(new ExpressError('Page Not Found', 404))
