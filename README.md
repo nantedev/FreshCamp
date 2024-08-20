@@ -1,29 +1,47 @@
-FreshCamp est une application full-stack.
+# FreshCamp, la communauté des campeurs
 
+FreshCamp is a full-stack application designed to allow users to explore and manage camping sites. Users can create accounts, submit detailed information about campsites, leave reviews, and interact with an integrated map to find the exact locations of campsites.
 
-Technologies utilisées :
-* Front-End: HTML5, CSS3, Boostrap, Javascript, ES6+
-* Back-End: Node.js, Express.js et EJS
-* Database: MongoDB
-* Developpement: Git, GitHub
-* Production : Render, Cloudinary, MongoDB, Atlas
+## Technologies Used
 
+### Front-End
+- HTML5
+- CSS3
+- Bootstrap
+- JavaScript (ES6+)
 
-Caractéristiques et Spécifications du Produit :
+### Back-End
+- Node.js
+- Express.js
+- EJS (Embedded JavaScript)
 
-* Inscription des utilisateurs : les utilisateurs peuvent créer un compte personnel sur la plateforme, leur permettant de profiter pleinement des fonctionnalités du site.
+### Database
+- MongoDB
 
-* Gestion des données des campings :
-  - Téléchargement de données : les utilisateurs peuvent soumettre  des informations détaillées sur les campings,
-    y compris des descriptions, des images, des emplacements, et bien plus encore.
-  - Édition des données : Les utilisateurs ont la possibilité de modifier les informations qu'ils ont envoyées, 
-    mais uniquement celles qu'ils ont eux-mêmes ajoutées, et pas celles des autres.
+### Development Tools
+- Git
+- GitHub
 
-* Publication de commentaires : les utilisateurs peuvent publier autant de commentaires qu'ils le souhaitent dans la section dédiée à chaque page de camping.
+### Production
+- Render
+- Cloudinary
+- MongoDB Atlas
 
-* Avis utilisateurs : Chaque utilisateur peut laisser un seul avis par camping, avec une évaluation allant de 1 à 5 étoiles.
+## Features
 
-* Carte intégrée : une carte est intégrée sur chaque page de camping, permettant aux utilisateurs de visualiser l'emplacement exact des campings de manière interactive.
+### User Registration
+Users can sign up and create a personal account on FreshCamp. Registered users can access all features of the platform.
+
+### Camping Data Management
+- **Data Upload:** Users can submit detailed information about campsites, including descriptions, images, locations, and more.
+- **Data Editing:** Users can edit the information they have submitted, but only the data they have personally added.
+
+### User Reviews
+Each user can leave one review per campsite, with a rating ranging from 1 to 5 stars.
+
+### Integrated Map
+A map is integrated on each campsite page, allowing users to view the exact location of campsites interactively.
+
 
 
 
