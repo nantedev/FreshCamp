@@ -10,10 +10,12 @@ FreshCamp is a full-stack application designed to allow users to explore and man
 - Bootstrap
 - JavaScript (ES6+)
 
+### Templates
+- EJS (Embedded JavaScript)
+
 ### Back-End
 - Node.js
 - Express.js
-- EJS (Embedded JavaScript)
 
 ### Database
 - MongoDB
