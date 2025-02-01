@@ -1,8 +1,16 @@
-# Le FreshCamp, la communauté des campeurs
+# FreshCamp ⛺
 
 FreshCamp is a full-stack application designed to allow users to explore and manage camping sites. Users can create accounts, submit detailed information about campsites, leave reviews, and interact with an integrated map to find the exact locations of campsites.
 
-## Technologies Used
+## Features 🌲
+
+- **User Authentication**: Secure login and registration system.
+- **Campsite Management**: Users can add, edit, and delete campsites.
+- **Reviews & Ratings**: Leave feedback on campsites.
+- **Interactive Map**: Locate campsites easily using a map.
+- **Image Uploads**: Upload campsite images via Cloudinary.
+
+## Technologies Used 🛠️
 
 ### Front-End
 - HTML5
@@ -18,31 +26,41 @@ FreshCamp is a full-stack application designed to allow users to explore and man
 - Express.js
 
 ### Database
-- MongoDB
+- MongoDB (MongoDB Atlas for production)
 
 ### Development Tools
 - Git
 - GitHub
 
 ### Production
-- Render
-- Cloudinary
-- MongoDB Atlas
+- Render (Hosting)
+- Cloudinary (Image Storage)
+- MongoDB Atlas (Database Hosting)
 
-## Features
+## Installation & Setup 🏕️
 
-### User Registration
-Users can sign up and create a personal account on FreshCamp. Registered users can access all features of the platform.
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/your-username/freshcamp.git
+   cd freshcamp
+   ```
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+3. Set up environment variables:
+   - Create a `.env` file and add the following:
+     ```env
+     MONGO_URI=your_mongodb_uri
+     CLOUDINARY_CLOUD_NAME=your_cloud_name
+     CLOUDINARY_API_KEY=your_api_key
+     CLOUDINARY_API_SECRET=your_api_secret
+     ```
+4. Start the development server:
+   ```bash
+   npm start
+   ```
 
-### Camping Data Management
-- **Data Upload:** Users can submit detailed information about campsites, including descriptions, images, locations, and more.
-- **Data Editing:** Users can edit the information they have submitted, but only the data they have personally added.
-
-### User Reviews
-Each user can leave one review per campsite, with a rating ranging from 1 to 5 stars.
-
-### Integrated Map
-A map is integrated on each campsite page, allowing users to view the exact location of campsites interactively.
 
 
 
