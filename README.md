@@ -1,3 +1,5 @@
+![Dodoburger mickael nantedev e-commerce](./Freshcamp-nantedev.png)
+
 # FreshCamp ⛺
 
 FreshCamp is a full-stack application designed to allow users to explore and manage camping sites. Users can create accounts, submit detailed information about campsites, leave reviews, and interact with an integrated map to find the exact locations of campsites.
