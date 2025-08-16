@@ -143,9 +143,19 @@ app.use((req, res, next) => {
     next();
 })
 
+// Routes classiques pour les vues EJS
 app.use('/', userRoutes);
 app.use('/campgrounds', campgroundRoutes);
 app.use('/campgrounds/:id/reviews', reviewRoutes);
+
+// Routes API pour React
+const apiCampgroundRoutes = require('./routes/api/campgrounds');
+const apiUserRoutes = require('./routes/api/users');
+const apiReviewRoutes = require('./routes/api/reviews');
+
+app.use('/api/campgrounds', apiCampgroundRoutes);
+app.use('/api/users', apiUserRoutes);
+app.use('/api/campgrounds/:id/reviews', apiReviewRoutes);
 
 app.get('/', (req ,res) => {
             res.render('home')
