@@ -15,6 +15,7 @@ const passport = require('passport');
 const LocalStrategy = require('passport-local');
 const User = require('./models/user');
 const helmet = require('helmet');
+const cors = require('./middleware/cors');
 
 const mongoSanitize = require('express-mongo-sanitize');
 
@@ -41,8 +42,10 @@ app.set('views', path.join(__dirname, 'views'));
 
 
 app.use(express.urlencoded({ extended: true}));
+app.use(express.json()); // Pour parser le JSON
 app.use(methodOverride('_method'));
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(cors); // Middleware CORS
 app.use(
     mongoSanitize({
       replaceWith: '_',
